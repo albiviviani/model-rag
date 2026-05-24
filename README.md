@@ -53,7 +53,7 @@ http://localhost:8000
 
 The UI supports both pasted text ingestion and file upload ingestion, then querying the local RAG system from the same page.
 Start the app and run quick tests. These exact commands work on macOS (use the
-project venv so dependencies like `python-multipart` are available):
+project venv so dependencies are available):
 
 1. Create and activate a virtual environment (only if you haven't already):
 
@@ -62,7 +62,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Install requirements (includes `python-multipart`):
+2. Install requirements:
 
 ```bash
 ./.venv/bin/python3 -m pip install -r requirements.txt
@@ -95,10 +95,8 @@ curl -v -F "question=What is this test about?" http://127.0.0.1:8000/api/query
 
 Notes:
 - Always run the server with the project's venv Python (`./.venv/bin/python3`) to
-	ensure the installed packages are used. Starting Uvicorn with a system
-	Python that lacks `python-multipart` will raise the Form data runtime error.
-- `requirements.txt` now includes `python-multipart` so future setups will
-	install multipart support automatically.
+	ensure the installed packages are used.
+- `requirements.txt` includes the packages needed for file upload and API functionality.
 
 ---
 
