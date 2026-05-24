@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG Studio</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header>
+        <div class="hero-copy">
+          <p class="eyebrow">Local RAG Studio</p>
+          <h1>Ingest documents and ask your own knowledge base.</h1>
+          <p class="subtitle">Upload files or paste text, then query your vector store from a clean, responsive interface.</p>
+        </div>
+        <div class="hero-status" id="service-status">Ready to ingest documents and answer questions.</div>
+      </header>
+
+      <main>
+        <section class="card panel panel-accent">
+          <h2>Ingest a document</h2>
+          <label class="field-label" for="file-input">Upload a text file</label>
+          <input id="file-input" type="file" accept=".txt,.md,.csv" />
+          <span class="divider">or</span>
+          <label class="field-label" for="ingest-text">Paste text to ingest</label>
+          <textarea id="ingest-text" placeholder="Paste document text here..."></textarea>
+          <button id="ingest-button">Ingest Document</button>
+          <div id="ingest-status" class="status"></div>
+        </section>
+
+        <section class="card panel">
+          <h2>Ask a question</h2>
+          <input id="question-input" placeholder="What do you want to know?" />
+          <button id="query-button">Get Answer</button>
+          <div id="query-status" class="status"></div>
+        </section>
+
+        <section class="card answer-card hidden" id="answer-card">
+          <h2>Answer</h2>
+          <div id="answer-controls">
+            <button id="copy-answer" class="muted">Copy Answer</button>
+            <button id="clear-answer" class="muted">Clear</button>
+          </div>
+          <pre id="answer-content" class="answer-content" aria-live="polite"></pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
